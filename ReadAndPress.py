@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 import uinput
 
 browser = webdriver.Firefox()
-browser.get('http://www.twitch.tv/twitchplayspokemon')
+browser.get('http://www.twitch.tv/araujojordan')
 
 teclas = (
 	uinput.KEY_UP,
@@ -12,6 +12,10 @@ teclas = (
 	uinput.KEY_RIGHT,
 	uinput.KEY_A,
 	uinput.KEY_B,
+	uinput.KEY_X,
+	uinput.KEY_Y,
+	uinput.KEY_L,
+	uinput.KEY_R,
 	uinput.KEY_S, #select
 	uinput.KEY_P #start
 	)
@@ -21,7 +25,7 @@ while True:
 	try:
 		elements = browser.find_elements_by_class_name("chat_line")
 		for elem in elements:
-			
+
 			comando = elem.get_attribute("innerHTML")
 			if comando == 'up' or comando == 'UP' or comando == 'Up':
 				device.emit_click(uinput.KEY_UP)
@@ -35,10 +39,18 @@ while True:
 				device.emit_click(uinput.KEY_B)
 			elif comando == 'start' or comando == 'Start' or comando == 'START':
 				device.emit_click(uinput.KEY_P)
-			elif comando == 'select' or comando == 'Select':
+			elif comando == 'select' or comando == 'Select' or comando == 'SELECT':
 				device.emit_click(uinput.KEY_S)
 			elif comando == 'a' or comando == 'A':
 				device.emit_click(uinput.KEY_A)
+			elif comando == 'X' or comando == 'x':
+				device.emit_click(uinput.KEY_X)
+			elif comando == 'Y' or comando == 'y'
+				device.emit_click(uinput.KEY_Y)
+			elif comando == 'L' or comando == 'l'
+				device.emit_click(uinput.KEY_L)
+			elif comando == 'R' or comando == 'r'
+				device.emit_click(uinput.KEY_R)
 
 	except Exception: #Erro acontece quando um elemento eh deletado ou reaproveitado pelo codigo
-		print comando #melhor opcao econtrada eh ignorar para que ele passe para o proximo
+		continue #melhor opcao econtrada eh ignorar para que ele passe para o proximo
