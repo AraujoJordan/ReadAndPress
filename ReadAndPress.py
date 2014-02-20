@@ -5,7 +5,17 @@ import uinput
 browser = webdriver.Firefox()
 browser.get('http://www.twitch.tv/twitchplayspokemon')
 
-device = uinput.Device([uinput.KEY_UP, uinput.KEY_DOWN, uinput.KEY_LEFT, uinput.KEY_RIGHT, uinput.KEY_A, uinput.KEY_B, uinput.KEY_S, uinput.KEY_P])
+teclas = (
+	uinput.KEY_UP,
+	uinput.KEY_DOWN,
+	uinput.KEY_LEFT,
+	uinput.KEY_RIGHT,
+	uinput.KEY_A,
+	uinput.KEY_B,
+	uinput.KEY_S, #select
+	uinput.KEY_P #start
+	)
+device = uinput.Device(teclas)
 
 while True:
 	try:
@@ -22,11 +32,11 @@ while True:
 			elif comando == 'left' or comando == 'LEFT' or comando == 'Left':
 				device.emit_click(uinput.KEY_LEFT)
 			elif comando == 'b' or comando == 'B':
-				device.emit_click(uinput.Key_B)
+				device.emit_click(uinput.KEY_B)
 			elif comando == 'start' or comando == 'Start' or comando == 'START':
-				device.emit_click(uinput.Key_P)
+				device.emit_click(uinput.KEY_P)
 			elif comando == 'select' or comando == 'Select':
-				device.emit_click(uinput.Key_S)
+				device.emit_click(uinput.KEY_S)
 			elif comando == 'a' or comando == 'A':
 				device.emit_click(uinput.KEY_A)
 
