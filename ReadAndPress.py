@@ -1,6 +1,6 @@
 from selenium import webdriver
-import uinput
 from selenium.webdriver.common.keys import Keys
+import uinput
 
 browser = webdriver.Firefox()
 browser.get('http://www.twitch.tv/twitchplayspokemon')
@@ -11,6 +11,7 @@ while True:
 	try:
 		elements = browser.find_elements_by_class_name("chat_line")
 		for elem in elements:
+			
 			comando = elem.get_attribute("innerHTML")
 			if comando == 'up' or comando == 'UP' or comando == 'Up':
 				device.emit_click(uinput.KEY_UP)
