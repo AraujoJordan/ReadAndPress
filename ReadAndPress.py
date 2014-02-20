@@ -21,14 +21,14 @@ while True:
 				device.emit_click(uinput.KEY_RIGHT)
 			elif comando == 'left' or comando == 'LEFT' or comando == 'Left':
 				device.emit_click(uinput.KEY_LEFT)
-			elif comando == 'a' or comando == 'A':
-				device.emit_click(uinput.KEY_A)
 			elif comando == 'b' or comando == 'B':
 				device.emit_click(uinput.Key_B)
 			elif comando == 'start' or comando == 'Start' or comando == 'START':
 				device.emit_click(uinput.Key_P)
 			elif comando == 'select' or comando == 'Select':
 				device.emit_click(uinput.Key_S)
+			elif comando == 'a' or comando == 'A':
+				device.emit_click(uinput.KEY_A)
 
-	except Exception: #Erro acontece quando um elemento é deletado ou reaproveitado pelo código
-		print comando #melhor opção econtrada é ignorar para que ele passe para o proximo
+	except Exception: #Erro acontece quando um elemento eh deletado ou reaproveitado pelo codigo
+		print comando #melhor opcao econtrada eh ignorar para que ele passe para o proximo
