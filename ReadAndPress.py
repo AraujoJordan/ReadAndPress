@@ -30,5 +30,5 @@ while True:
 			elif comando == 'select' or comando == 'Select':
 				device.emit_click(uinput.Key_S)
 
-	except Exception: #Erro acontece por elemento deletado ou reaproveitado pelo código
-		print comando #melhor opção acredito que é ignorar para que ele passe pro proximo
+	except Exception: #Erro acontece quando um elemento é deletado ou reaproveitado pelo código
+		print comando #melhor opção econtrada é ignorar para que ele passe para o proximo
