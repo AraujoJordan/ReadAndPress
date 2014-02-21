@@ -45,11 +45,11 @@ while True:
 				device.emit_click(uinput.KEY_A)
 			elif comando == 'X' or comando == 'x':
 				device.emit_click(uinput.KEY_X)
-			elif comando == 'Y' or comando == 'y'
+			elif comando == 'Y' or comando == 'y':
 				device.emit_click(uinput.KEY_Y)
-			elif comando == 'L' or comando == 'l'
+			elif comando == 'L' or comando == 'l':
 				device.emit_click(uinput.KEY_L)
-			elif comando == 'R' or comando == 'r'
+			elif comando == 'R' or comando == 'r':
 				device.emit_click(uinput.KEY_R)
 
 	except Exception: #Erro acontece quando um elemento eh deletado ou reaproveitado pelo codigo
