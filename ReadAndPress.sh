@@ -1,6 +1,5 @@
 # !/bin/bash
 python ReadAndPress.py &
-zsnes &
 STREAM_KEY='live_57134826_alkM6KoRML79i7MZCQQzfnxg4zh9pN'
 SERVER="live-fra"    # EU server
 # Get Game Window
