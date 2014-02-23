@@ -2,38 +2,32 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import uinput
+from pykeyboard import PyKeyboard
+import time
 
-elemAnterior = 'nenhum texto'
+elemAnterior = 'nada'
+txtAnterior = 'nada'
 browser = webdriver.Firefox()
 browser.get('http://www.twitch.tv/araujojordan')
+#twitchplayspokemon
 
-teclas = (
-	uinput.KEY_UP,
-	uinput.KEY_DOWN,
-	uinput.KEY_LEFT,
-	uinput.KEY_RIGHT,
-	uinput.KEY_A,
-	uinput.KEY_B,
-	#uinput.KEY_X,
-	#uinput.KEY_Y,
-	uinput.KEY_L,
-	uinput.KEY_R,
-	uinput.KEY_SPACE,
-	uinput.KEY_ENTER
-	)
-device = uinput.Device(teclas)
-device.emit(uinput.KEY_)
+k = PyKeyboard()
+
+def press_and_hold(character):
+    k.press_key(character)
+    time.sleep(0.5)
+    k.release_key(character)
 
 def get_Last(iterable):
 	global elemAnterior
+	global txtAnterior
 	if iterable:
 		item = iterable[-1]
-		if item.id == elemAnterior:
+		if item.id == elemAnterior and item.text==txtAnterior:
 			return None
-		txt = item.get_attribute("innerHTML")
 		elemAnterior = item.id
-		return txt
+		txtAnterior = item.text
+		return item.text
 	return None
 
 while True:
@@ -44,29 +38,40 @@ while True:
 		
 	comando = get_Last(elements)
 	if comando == '':
-		continue
-	#for elem in elements:
+		continue #ignorar quando comando nao existir
 	if comando == 'up' or comando == 'UP' or comando == 'Up':
-		device.emit_click(uinput.KEY_UP)
+		print comando
+		press_and_hold(k.up_key)
 	elif comando == 'down' or comando == 'DOWN' or comando == 'Down':
-		device.emit_click(uinput.KEY_DOWN)
+		print comando
+		press_and_hold(k.down_key)
 	elif comando == 'right' or comando == 'RIGHT' or comando == 'Right':
-		device.emit_click(uinput.KEY_RIGHT)
+		print comando
+		press_and_hold(k.right_key)
 	elif comando == 'left' or comando == 'LEFT' or comando == 'Left':
-		device.emit_click(uinput.KEY_LEFT)
-	elif comando == 'b' or comando == 'B':
-		device.emit_click(uinput.KEY_X)
+		print comando
+		press_and_hold(k.left_key)
 	elif comando == 'start' or comando == 'Start' or comando == 'START':
-		device.emit_click(uinput.KEY_ENTER)
+		print comando
+		k.type_string('p')
 	elif comando == 'select' or comando == 'Select' or comando == 'SELECT':
-		device.emit_click(uinput.KEY_SPACE)
+		print comando
+		k.type_string('s')
+	elif comando == 'b' or comando == 'B':
+		print comando
+		k.type_string('b')
 	elif comando == 'a' or comando == 'A':
-		device.emit_click(uinput.KEY_Z)
-	#elif comando == 'X' or comando == 'x':
-	#	device.emit_click(uinput.KEY_X)
-	#elif comando == 'Y' or comando == 'y':
-	#	device.emit_click(uinput.KEY_Y)
+		print comando
+		k.type_string('a')
+	elif comando == 'X' or comando == 'x':
+		print comando
+		k.type_string('x')
+	elif comando == 'Y' or comando == 'y':
+		print comando
+		k.type_string('y')
 	elif comando == 'L' or comando == 'l':
-		device.emit_click(uinput.KEY_A)
+		print comando
+		k.type_string('l')
 	elif comando == 'R' or comando == 'r':
-		device.emit_click(uinput.KEY_S)
+		print comando
+		k.type_string('r')
