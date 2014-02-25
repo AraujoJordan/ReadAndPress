@@ -1,5 +1,4 @@
 from pykeyboard import PyKeyboard #need Xlib
-from threading import Thread
 import time
 
 k = PyKeyboard()
