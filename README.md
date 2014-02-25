@@ -1,7 +1,8 @@
 # ReadAndPress
 
-Script write in python for Linux.
-Its open the Twitch.tv and Justin.tv, reading and pressing the readed commands to the user keyboard
+Script writen in python for linux.
+
+He opens the Twitch.tv or Justin.tv , reading the chat commands, and pressing them on the User's keyboard.
 
 ###REQUERIMENTS
 
