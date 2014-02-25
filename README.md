@@ -14,9 +14,6 @@ Its open the Twitch.tv and Justin.tv, reading and pressing the readed commands t
 
 Run as ROOT the command: 
 
-	'''bash
-
 		python Start.py
-	'''
 
 OBS: Its need ROOT permission for press the the commands to the keyboard
