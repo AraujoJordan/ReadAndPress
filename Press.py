@@ -9,6 +9,8 @@ def press_and_hold(character):
     k.release_key(character)
 
 def press(cmd):
+	if None:
+		return None
 	if cmd == 'up' or cmd == 'UP' or cmd == 'Up':
 		print cmd
 		press_and_hold(k.up_key)

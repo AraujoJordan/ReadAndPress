@@ -2,7 +2,9 @@ from Press import *
 from Read import *
 
 def connect(url):
-	
+	global listLen
+	global lastElemID
+
 	browser = webdriver.Firefox()
 	browser.get('http://www.twitch.tv/'+url)
 
@@ -14,5 +16,10 @@ def connect(url):
 			pass
 
 		press(read(item_list))
+		if(len(item_list)>=150):
+			browser.execute_script("CurrentChat.clear_chat_lines()")
+			lastElemID = 'nothing'
+			listLen = 'nothing'
+
 
 connect('araujojordan')

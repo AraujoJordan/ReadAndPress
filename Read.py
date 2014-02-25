@@ -6,14 +6,14 @@ elemLenElement = 'nothing'
 
 def read(item_list):
 	global lastElemID
-	global lastElemLen
+	global listLen
 
 	if item_list:
 		item = item_list[-1]
-		if item.id == lastElemID: #and item.get_attribute('len()')<=lastElemLen:
+		if item.id == lastElemID and len(item_list)<=listLen:
 			return None
 		lastElemID = item.id
-		#lastElemLen = item.get_attribute('len()')
+		listLen = len(item_list)
 		return item.text
 
 	return None
