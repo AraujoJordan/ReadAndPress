@@ -1,4 +1,5 @@
 import time
+import win32api # instalation files on dir: WinLibs/
 import win32com.client
 
 k = win32com.client.Dispatch("WScript.Shell")
