@@ -4,18 +4,23 @@ from selenium.webdriver.common.keys import Keys
 from threading import Thread
 
 URL = 'http://www.twitch.tv/twitchplayspokemon' #you can use www.justin.tv too
+listSize = 0
 
 #	This method check if the chat list is >= 1 element
 #	then, read all coments in a new thread.
 def readAndClear(chat_list,browser):
-	chat_text_list = []
-	if len(chat_list)>=1:
-		for chat_element in chat_list:
-			chat_text_list.append(chat_element.text) #get only the text
-		thread = Thread(target = readAndPress, args = (list(chat_text_list),)) #run a thread for readAndPress
-		del chat_text_list[:] #clear list
+	global oldListSize
+
+	if len(chat_list)>oldListSize:
+		textList = []
+		while len(chat_list) > oldListSize:
+			textList.append(chat_list[oldListSize].text) #add a text line of chat on a list
+			oldListSize = oldListSize+1 
+		thread = Thread(target = readAndPress, args = (textList,)) #run a thread with the chat line list for readAndPress
 		thread.start()
-		browser.execute_script('CurrentChat.clear_chat_lines()') #clear the browser chat
+		if(len(chat_list)>=150:
+			browser.execute_script('CurrentChat.clear_chat_lines()') #clear the browser chat
+			listSize = 0
 
 #	Call the browser Firefox and read the coments in the chat of Twitch/Justin
 def connect(url):
