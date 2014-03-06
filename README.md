@@ -6,7 +6,7 @@ He opens the Twitch.tv or Justin.tv , reading the chat commands, and pressing th
 
 ###HOW TO USE
 
-##LINUX:
+####LINUX:
 
 * Download XLib and PyKeyboard python libs
 * Run as ROOT the command: 
@@ -15,7 +15,7 @@ He opens the Twitch.tv or Justin.tv , reading the chat commands, and pressing th
 
 OBS: Its need ROOT permission for press the the commands to the keyboard
 
-##Windows:
+####Windows:
 
 * On "Windows Setup" folder, run the install.bat
 * Double click the "Start.py"
