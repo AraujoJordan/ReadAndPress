@@ -3,6 +3,9 @@ import time
 
 k = PyKeyboard()
 
+def adjustText(text):
+	return text.lower().replace(" ", "").replace(".","")
+
 #	Hold the key for 0.5 seconds
 def hold(character):
     k.press_key(character)
@@ -12,29 +15,30 @@ def hold(character):
 #	Read and Press the comments list (SNES CONTROL)
 def readAndPress(chat_list):
 	for chat_line in chat_list:
-		if chat_line == 'up' or chat_line == 'UP' or chat_line == 'Up':
+		chat_line = adjustText(chat_line)
+		if chat_line == 'up':
 			hold(k.up_key)
-		elif chat_line == 'down' or chat_line == 'DOWN' or chat_line == 'Down':
+		elif chat_line == 'down':
 			hold(k.down_key)
-		elif chat_line == 'right' or chat_line == 'RIGHT' or chat_line == 'Right':
+		elif chat_line == 'right':
 			hold(k.right_key)
-		elif chat_line == 'left' or chat_line == 'LEFT' or chat_line == 'Left':
+		elif chat_line == 'left':
 			hold(k.left_key)
-		elif chat_line == 'start' or chat_line == 'Start' or chat_line == 'START':
+		elif chat_line == 'start':
 			k.type_string('p')
-		elif chat_line == 'select' or chat_line == 'Select' or chat_line == 'SELECT':
+		elif chat_line == 'select':
 			k.type_string('s')
-		elif chat_line == 'b' or chat_line == 'B':
+		elif chat_line == 'b':
 			k.type_string('b')
-		elif chat_line == 'a' or chat_line == 'A':
+		elif chat_line == 'a':
 			k.type_string('a')
-		elif chat_line == 'X' or chat_line == 'x':
+		elif chat_line == 'x':
 			k.type_string('x')
-		elif chat_line == 'Y' or chat_line == 'y':
+		elif chat_line == 'y':
 			k.type_string('y')
-		elif chat_line == 'L' or chat_line == 'l':
+		elif chat_line == 'l':
 			k.type_string('l')
-		elif chat_line == 'R' or chat_line == 'r':
+		elif chat_line == 'r':
 			k.type_string('r')
 		else:
 			return
