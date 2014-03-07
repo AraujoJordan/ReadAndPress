@@ -20,6 +20,6 @@ def readAndPress(chat_list):
 			hold(k.right_key)
 		elif chat_line.lower() == 'left':
 			hold(k.left_key)
-		else
+		else:
 			return
 		print chat_line

@@ -1,24 +1,32 @@
-#from PressLinux import *
+import sys
+
+if sys.platform == 'win32':
+  from PressWin import *
+elif 'linux' in sys.platform:
+  from PressLinux import *
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from threading import Thread
 
 URL = 'http://www.twitch.tv/twitchplayspokemon' #you can use www.justin.tv too
-listSize = 0
+oldListSize = 0
 
 #	This method check if the chat list is >= 1 element
 #	then, read all coments in a new thread.
 def readAndClear(chat_list,browser):
 	global oldListSize
 
-	if len(chat_list)>oldListSize:
+	if len(chat_list) > oldListSize:
 		textList = []
 		while len(chat_list) > oldListSize:
 			textList.append(chat_list[oldListSize].text) #add a text line of chat on a list
-			oldListSize = oldListSize+1 
-		thread = Thread(target = readAndPress, args = (textList,)) #run a thread with the chat line list for readAndPress
+			oldListSize = oldListSize+1
+
+		thread = Thread(target = readAndPress, args = (textList,))
 		thread.start()
-		if(len(chat_list)>=150:
+
+		if len(chat_list) >=150:
 			browser.execute_script('CurrentChat.clear_chat_lines()') #clear the browser chat
 			listSize = 0
 
