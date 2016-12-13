@@ -2,7 +2,7 @@
 
 Script writen in python for Windows and Linux.
 
-He opens the Twitch.tv or Justin.tv , reading the chat commands, and pressing them on the User's keyboard.
+He opens the Twitch.tv or Justin.tv , reading the chat commands, and press it on the User's keyboard.
 
 ###HOW TO USE
 
